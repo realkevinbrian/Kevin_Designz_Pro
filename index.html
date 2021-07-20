@@ -14,13 +14,22 @@
     <!-- <i class="bx bxl-twitter"></i> -->
 
     <!-- navigation bar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
 
-        <div class="navbar__logo">
+        <div class="navbar__logo" id="logo">
             <h4>Kevin Designz Pro</h4>
+            <div class="navbar__burger">
+            
+                <div class="navbar__burger--wrapper" id="burger_menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    
+            </div>
         </div>
 
-        <ul class="navbar__links">
+        <ul class="navbar__links" id="navbar__links">
             
             <li class="navbar__links--item active">
                 <a href="#">Home</a>
@@ -54,6 +63,8 @@
             </li>
 
         </ul>
+
+       
 
     </nav>
     <!-- navigation bar end -->
@@ -280,6 +291,6 @@
 
 
     <script src="/resources/script/main.js"></script>
-    <script src="/node_modules/boxicons/src/index.js"></script>
+    <script type="module" src="/node_modules/boxicons/src/index.js"></script>
 </body>
 </html>
