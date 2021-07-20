@@ -1,3 +1,5 @@
+@import "../../node_modules/include-media/dist/include-media";
+
 // typografia
 
 @font-face {
@@ -14,6 +16,8 @@ body{
     padding: 0px;
     height: 100%;
     scroll-behavior: smooth;
+
+    
     
 }
 
@@ -60,18 +64,12 @@ ul{
 /* navigation */
 
 .navbar{
-
-    
-    
-
     display: flex;
-    // display: none;
     justify-content: space-between;
     background-color: rgba(5, 5, 5, 0.932);
     position: fixed;
     width: 100%;
     z-index: 100000000000000;
-
     
     &__logo{
         flex:1%;
@@ -92,7 +90,10 @@ ul{
         flex-direction: row;
         align-items: center;
         flex: 1;
-        justify-content: space-evenly;         
+        justify-content: space-evenly;  
+        @include media("≥phone", "≤tablet") {
+            display: none;
+        }       
 
         &--item{
             margin: 10px;
@@ -166,6 +167,43 @@ ul{
 
 
     }
+
+    &__burger{
+        // display: none;
+        @include media("≥phone", "≤tablet") {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+                justify-items: center;
+                align-items:flex-end;
+                flex: 1;
+
+            &--wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+                justify-items: center;
+                margin-right: 20px;
+                cursor: pointer;
+                position: relative;
+
+            
+
+                div{
+                    width: 35px;
+                    height: 3px;
+                    margin: 3px;
+                    background-color: white;
+                    border-radius: 10px;
+                    transition: all 0.3s;
+                    position: relative;
+                    
+                }
+            }
+        } 
+    }
 }
 /* navigation end*/
 
@@ -175,6 +213,7 @@ ul{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px,1fr));
     padding: 5% 0% 10% 0%;
+    
     
     &__text{
         display: flex;
@@ -397,7 +436,6 @@ end*/
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     align-items: center;
     background-color: rgb(231, 230, 230);
-
     &__text{
         margin: 10%;
 
@@ -415,6 +453,8 @@ end*/
     }
 
     &__image{
+        width: 100%;
+        max-width: 95%;
         img{
             width: 90%;
             display: block;
