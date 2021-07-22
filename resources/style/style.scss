@@ -1,1144 +1,746 @@
+@import "../../resources/style/modules/palette";
+@import "../../resources/style/modules/typography";
+@import "../../resources/style/modules/functions";
+@import "../../resources/style/modules/default";
 @import "../../node_modules/include-media/dist/include-media";
-
-
-// typografia
-
-@font-face {
-    font-family: poppins;
-    src: url("/resources/style/Poppins/Poppins-Regular.ttf");
-}
-
-
-// deafult styles
-
-html,
-body{
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    scroll-behavior: smooth;
-    user-select: none;
-    user-zoom: none;
-    
-}
-
-a{
-    display: flex;
-    flex: row;
-    align-items: center;
-    
-}
-
-button{
-    a{
-    display: flex;
-    flex: row;
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-    }
-}
-img{
-    width: 100%;
-    max-width: 100%;
-}
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-    margin: 0px;
-    padding: 0px;
-    font-family: poppins;
-}
-
-p{
-    font-family: poppins;
-}
-
-a{
-    font-family: poppins;
-}
-
-ul{
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-
-    li{
-        a{
-            text-decoration: none;
-        }
-    }
-
-}
-
-
-/* navigation */
-
+/*Navigation bar styles*/
 .navbar{
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(5, 5, 5, 0.932);
+    // @include debug(red);
+    // @include displayFlex(row,center);
+    @include padding;
+    background-color: $primary-text-color;
     position: fixed;
     width: 100%;
-    z-index: 100000000000000;
     top: 0;
-    
+    // @include debug(red);
+
+    //logo 
     &__logo{
-        flex:1%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        h4{
-            margin: 20px;
-            color: rgb(211, 207, 207);
+    
+    // @include debug(red);
+        color: white;
+        @include displayFlex(row,center);
+        .menu{
+            display: none;
         }
+        
+    }
 
+    @include media("≥phone", "≤tablet") {
+        padding: 0px;
+
+        
+        &__logo{
+            padding: 4%;
+            h4{
+                font-size: 1.1rem;
+            }
+
+            .menu{
+                @include displayFlex(column,flex-end);
+                flex:1;
+                
+                &__container{
+                    // @include debug(red);
+                    // border: 2px solid white;
+                    margin: 2px;
+                    padding: 5px;
+                    @include displayFlex(column,space-between);                    
+
+                    div{
+                        width: 2.3em;
+                        height: 4px;
+                        background-color: white;
+                        margin: 3px;
+                        border-radius: 10px;
+                        &:nth-last-child(2){
+                            width: 50%;
+                        }
+                    }
+
+                }
+
+            }
+        }
+        
 
     }
+
+
+    
 
     &__links{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex: 1;
-        justify-content: space-evenly;  
+        // @include debug(blue);
+        flex:1;
+        @include displayFlex(row,center);
+        justify-content: space-evenly;
         @include media("≥phone", "≤tablet") {
             display: none;
-        }       
+    }
 
-        &--item{
-            margin: 10px;
-            font-size: 0.8rem;
-            position: relative;
-
+        //li > a
+        li{
             a{
-                color: rgb(255, 255, 255);
-                
-                &:hover {
-                    color: rgb(31, 162, 250);
-                    
-                    &::after{
-                
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        position: absolute;
-                        background-color: rgb(255, 255, 255);
-                        left: 0;
-                        top: 0;
-                        transform: translateY(30px);
-                        width: 100%;
-                        transition: all 0.5s;
-                    }
-                    
+                color: $third-text-color;
+                &.active{
+                    // @include debug(red);
+                    color: white;
                 }
             }
-        }
-
-        &--item:nth-last-child(1){
-            // padding: 5px 15px 10px 15px;
-            border-radius: 20px;
-            // background-color: rgb(15, 48, 87);
             
-            a{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                color: white;
-                font-size: 0.8rem;
-                padding: 5px 15px 5px 15px;
-                background-color: rgb(5, 142, 255);
-                border-radius: 20px;
-
-                &:hover {
-                    color: rgb(255, 255, 255);
-                    background-color: rgb(6, 137, 180);
-
-                    &::after{
-                
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        position: absolute;
-                        background-color: rgb(255, 255, 255);
-                        left: 0;
-                        top: 0;
-                        transform: translateY(30px);
-                        width: 0;
-                        transition: all 0.5s;
-                    }
-                    
-                }
-            }
-
-            &::after{
-                content: none;
-            }
+           
+            
+            @include button;
+            //on hover button
+            
         }
+
+        
+
+        
 
 
     }
 
-    &__burger{
-        // display: none;
-        @include media("≥phone", "≤tablet") {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-end;
-                justify-items: center;
-                align-items:flex-end;
-                flex: 1;
-
-            &--wrapper{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-end;
-                justify-items: center;
-                margin-right: 20px;
-                cursor: pointer;
-                position: relative;
-
-            
-
-                div{
-                    width: 35px;
-                    height: 3px;
-                    margin: 3px;
-                    background-color: white;
-                    border-radius: 10px;
-                    transition: all 0.3s;
-                    position: relative;
-                    
-                }
-            }
-        } 
-    }
 }
-/* navigation end*/
+/*Navigation bar styles end*/
 
-
-/* landing page */
+/*Landing Page styles*/
 .hero{
-    // padding: 10% 0% 10% 0%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "l r";
+    background: url("../images/banner.jpg");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-attachment: fixed;
+    // @include debug(black);
+    @include displayFlex(row,center);
+    height: 100%;
+    padding: calc(2% + 10px);
+    padding-left: calc(15% + 10px);
+    padding-right: calc(15% + 10px);
     
 
-
-    &__text{
-        grid-area: l;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        p{
-            
-            margin: 10%;
-            margin-bottom: 5%;
-            font-size: 1.4rem;
-            font-weight: bolder;
-
-            strong{
-                color: rgb(10, 145, 199);
-            }
-        
-            
-        }
-
-        .buttons{
-            display: flex;
-            justify-content: space-evenly;
-            margin: 5%;
-            // border: 1px solid red;
-            
-            .btn{
-                border: 1px solid transparent;
-                background-color: transparent;
-                flex: 1;
-                padding: 2%;
-                margin: 5%;
-                transition: background-color 0.3s;
-                a{
-                    text-decoration: none;
-                    color: black;
-                }
-
-                transform: scale3d(1,1,1);
-                transition: all 0.2s;
-                &:hover{
-                    transform: scale3d(1.1,1.1,1.1);
-                    background-color: rgb(66, 66, 211);
-                }
-
-                
-            }
-
-            .btn__primary{
-                background-color: rgb(33, 109, 224);
-                a{
-                    color: white!important;
-                }
-            }
-
-            .btn__secondary{
-                background-color: rgb(2, 128, 117);
-                a{
-                    color: white!important;
-                }
-            }
-        }
-    }
-
-    &__image{
-        grid-area: r;
-        flex:1 0 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        //
-
-        img{
-            width: 50%;
-            max-width: 60%;
-            
-        }
-    }
-
     @include media("≥phone", "≤tablet") {
-        padding: 20% 0% 20% 0%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: "t t"
-                            "b b";
-        
+        height: initial;
+        padding: 0;
+        background-color: white;
+        background-image: none;
+        margin-top: calc(20% + 10px);
 
         &__text{
-            grid-area: b;
-            font-weight: bold;
-            font-size:2rem!important;
-
-        }
-        &__image{
-            grid-area: t;
-            img{
-                //
-                width: 40%!important;
+            h1{
+                font-size: 1.5rem;
+                font-weight: bold;
             }
         }
-
-
-    }
-}
-/* landing page end*/
-
-
-/*about me */
-
-.about{
-    padding: 5%;
-    display: flex;
-    flex-direction: row-reverse;
-    @include media("≥phone", "≤tablet") {
-        flex-direction: column;
-    }
-    align-content: center;
-    &__image{
-        // 
-        display: flex;
-        flex-direction: column;
-        align-items: center;       
-        img{
-            
-            width: 50%;
-            max-width: 95%;
-            display: block;
-            object-fit: fill;
-            
-            
-        }
+        
     }
 
     &__text{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4%;
+        background-color: rgba(207, 207, 207, 0.747);
+        padding: 10%;
 
-        h4{
-            font-size: 0.9rem;
+        &--content{
+            // @include debug(red);
         }
 
-        p{
-            color: rgb(157, 157, 157)
-            span{
-                font-size: 1.6rem;
-                color: black;
-                font-weight: bolder;
-            }
-            ;
-
-           
-        }
-        a{
-            color: rgb(0, 128, 119);
-            text-decoration: none;
-        }
-    }
-}
-/*about me end*/
-
-/*about me 2*/
-.about_second{
-    display: flex;
-    flex-direction: row;
-    @include media("≥phone", "≤tablet") {
-        flex-flow: wrap;
-    }
-    margin: 0px;
-    .about__image{
-        img{
-            width: 90%;
-            max-width: 95%;
-            display: block;
-            object-fit: fill;
+        &--buttons{
+            // @include debug(red);
+            @include displayFlex(row,center);
+            // justify-content: spca;
             
-        }
-    
-    }
 
-    .about__text{
-
-    }
-
-}
-
-/*about me 2*/
-
-/*Features*/
-.features{
-    
-    //layout
-    display: grid;
-    grid-template-columns: 1fr;
-
-    //styles
-    padding: 5%;
-    background-color: rgb(103, 221, 250);
-    
-
-    &__header{
-        // 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        h4{
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            color: rgb(70, 69, 69);
-        }
-
-        p{
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: white;
-            margin: 0px;
-        }
-    }
-
-    &__wrapper{
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-
-        @include media("≥phone", "≤tablet") {
-            grid-template-columns: repeat(1,1fr);
-        
-        }
-
-        
-        
-        
-
-        &--card{
-            padding: 20% 10% 20% 10%;
-            border: 1px solid transparent;
-            background-color: white;
-            box-shadow: 1px 3px 7px 7px rgba(105, 105, 105, 0.116);
-            h4{
-                font-size: 2rem;
-            }
-
-            h5{
-                font-size: 0.9rem;
-            }
-
-            p{
-                color: rgb(131, 130, 130);
-                margin-top: 5px;
-                
-            }
-
-            a{
-                text-decoration: none;
-                color: black;
-                font-size: 0.9rem;
+            button{
+                @include button;
+                padding: 0.8rem;
+                margin: 5px;
+                border: 2px solid $primary-text-color!important;
+                background-color: $primary-text-color;
 
                 &:hover{
-                    color: rgb(0, 132, 255);
+                    border: 2px solid transparent!important;
+                    background-color: $secondary-text-color;
                 }
-
             }
-
-        transform: scale3d(0.8,0.8,0.8);
-        transition: all 0.2s;
-        &:hover{
-            cursor: pointer;
-            transform: scale3d(1.1,1.1,1.1);
-            
-
         }
-
-        @include media("≥phone", "≤tablet") {
-            // transform: scale3d(0.7,0.7,0.7);
-            &:hover{
-                cursor: pointer;
-                transform: scale3d(0.9,0.9,0.9);
-                
-    
-            }
-        }       
-        }
-
-        &--card:nth-last-child(1){
-            border-right-color: transparent;
-        }
+        
+        
     }
+
 }
+/*Landing Page styles end*/
 
-
-/* social proof */
-.goals{
+/*about page styles */
+.about{
     padding: 5%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+    @include displayFlex(row,center);
     @include media("≥phone", "≤tablet") {
-    grid-template-columns: repeat(2,1fr);
-
+        flex-wrap: wrap;
     }
-    
-    
-    &__card{
-        padding: 10%;
-        background-color: rgb(224, 222, 222);
-        border-radius: 9px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        transform: scale3d(0.7,0.7,0.7);
-        transition: all 0.2s;
-        &:hover{
-            transform: scale3d(0.9,0.9,0.9);
-
-        }
-
-        span{
-            font-size: 2.4rem;
-        }
-
-        p{
-            font-size: 1.2rem;
-        }
-    }
-}
-/* social proof 
-end*/
-
-/* banner */
-.banner{
-    display: flex;
-    flex-direction: row;
-    padding: 5%;
-
-    @include media("≥phone", "≤tablet") {
-        flex-flow: wrap;
-    }
-
-    background-color: rgb(231, 230, 230);
-    &__text{
-        flex:1 0 50%;
-        margin: 5%;
-
-        h4{
-            font-size: 1.7rem;
-        }
-        p{
-            color: rgb(102, 101, 101);
-        }
-        a{
-            text-decoration: none;
-            color: black;
-            color: rgb(4, 110, 66);
-        }
-    }
-
     &__image{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        @include displayFlex(column,center);
 
-       
         img{
-            width: 100%;
+            width: 70%;
             display: block;
-            // margin: 5%;
+            
+            @include media("≥phone", "≤tablet") {
+                width: 100%;
+            }
+        }
+    }
+
+    &__text{
+        // @include debug(green);
+        @include padding;
+        @include displayFlex(column,flex-start);
+        justify-content: center;
+        
+        //header
+        h3{
+
+        }
+
+        //content
+        p{
+
+        }
+
+        //link
+        a{
+            color: $primary-text-color;
+            text-decoration: underline;
+            text-underline-offset: 5px;
         }
     }
 }
+/*about page styles end*/
 
-/* banner end*/
-
-/*separator*/
-.separator{
+/*about second page styles*/
+.about_second{
+    flex-flow: row-reverse;
     
-    padding: 0;
-    margin: 0;
-
-    hr{
-        height: 50px;
-        color: red;
-        width: 1px;
-        background-color: black;
-        border: 1px solid transparent;
-        position: relative;
-        
-        
-        &:nth-child(1){
-            background-color: rgb(255, 187, 0);
-            height: 70px;
-          
-        }
-
-        &:nth-last-child(2){
-            background-color: red;
-            transform: translateX(-20px) translateY(-50px);
-            
-            
-          
-        }
-
-        &:nth-last-child(1){
-            background-color: red;
-            transform: translateX(20px) translateY(-110px);
-            
-          
-        }
+    @include media("≥phone", "≤tablet") {
+        flex-wrap: wrap;
     }
-    
-    
-    
+
+    .about__image{
+        
+        
+    }
+
 }
+/*about second page styles end*/
 
-/*separator end*/
-
-
-/*work Proccess*/
-
-.work{
-    // 
-    display: none;
-    grid-template-columns: 1fr;
-    padding: 2%;
+/*Services section page*/
+.features{
+    // @include debug(black);
+    background-color: $third-text-color;
+    @include padding;
 
     &__header{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
+        // @include debug(green);
+        @include displayFlex(column,center);
+        @include padding;
 
+
+    }
+
+    &__wrapper.container{
+        @include displayGrid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        @include media("≥phone", "≤tablet") {
+            grid-template-columns: repeat(1,1fr);
+        }
+        .card{
+            // border: 2px solid $primary-text-color;
+            background-color: white;
+            margin: 5px;
+            @include padding;
+
+            
+        }
+    }
+}
+/*Services section page end*/
+
+
+/*goals section*/
+    @include card;
+    .goals{
+        padding: 5%;
+        .card{
+            background-color: $secondary-text-color;
+            margin:10px;
+            border-radius: 5px;
+            @include displayFlex(column,center);
+
+            //icon{
+                span{
+                    i{
+                        font-size:1.7rem;
+                    }
+                }
+                p{
+                    color: $third-text-color;
+                }
+
+        }
+    }
+/*goals section end*/
+
+/*banner section*/
+.banner{
+    background-color: $primary-text-color;
+    // @include debug(black);
+    @include displayFlex(row,center);
+    @include padding;
+    @include media("≥phone", "≤tablet") {
+        flex-wrap: wrap;
+    }
+
+    //image
+    &__image{
+        @include displayFlex(column,flex-end);
+
+        img{
+            width: 70%;
+            display: block;
+            
+            @include media("≥phone", "≤tablet") {
+                width: 100%;
+            }
+        }
+    }
+
+    //text
+    &__text{
+        // @include debug(green);
+        @include padding;
+        @include displayFlex(column,flex-start);
+        justify-content: center;
+        
+        //header
         h4{
+            color: $third-text-color;
+
+        }
+
+        //content
+        p{
+            color: $third-text-color;
+
+        }
+
+        //link
+        a{
+            color: $secondary-text-color;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+
+            &:hover{
+                color: $third-text-color;
+                text-decoration: none;
+            }
+        }
+    }
+}
+/*banner section end*/
+
+/*Work Process*/
+.work{
+    // @include debug(green);
+    @include displayGrid;
+    grid-template-columns: 1fr;
+    &__header{
+        // @include debug(red);
+        @include displayFlex(column,center);
+        @include padding;
+
+        h5{
             text-transform: uppercase;
             font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        p{
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-    
     }
 
     &__process{
-        display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-        margin: 5%;
+        // @include debug(black);
+        @include padding;
+        @include displayGrid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        @include media("≥phone", "≤tablet") {
+            grid-template-columns: repeat(1,1fr);
+        }
+        
         &--card{
-            display:flex;
-            flex-direction: row;
-            align-items: center;
+            padding: calc(30% - 100px);
+            background-color: $primary-text-color;
             margin: 5px;
+            @include displayFlex(row,center);
 
+            @include media("≥phone", "≤tablet") {
+            @include padding;
+            @include displayFlex(column,center);
+                div{
+                @include displayFlex(row,center);
+                }
+
+            }
 
             span#icon{
-                border: 1px solid rgb(199, 198, 198);
-                padding: 8%;
-
+                // @include debug(red);
+                padding: 5%;
+                border: 2px solid $third-text-color;
                 i{
-                    font-size: 1.9rem;
+                    font-size:1.5rem;
                 }
             }
 
-            p{
+            div{
+                // @include debug(red);
+                margin: 10px;
                 display: flex;
                 flex-direction: column;
-                margin: 10px;
-                span{
-                    font-size: 1.3rem;
+
+                h2{
+                    color: $third-text-color;
                     font-weight: bold;
                 }
 
+                span{
+                    color: $secondary-text-color;
+                }
             }
+            
+
         }
+            
     }
 
     &__text{
-        // 
+        // @include debug(red);
+        @include displayFlex(row,center);
         p{
-
-            padding: 0% 15% 0% 15%;
+            padding-left: calc(30% - 100px);
+            padding-right: calc(30% - 100px);
             text-align: center;
+
         }
     }
+
 }
-/*work Proccess*/
 
-/*testimony*/
+/*Work Process*/
+
+/*testimonies*/
 .testimonies{
-    display: none;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    padding: 3%;
-    user-zoom: none;
-    user-select: none;
-    background-color: rgb(247, 243, 243);
-
-    
+    background-color: $third-text-color;
+    padding: calc(2% + 10px);
 
     &__text{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        // @include debug(red);
+        @include displayFlex(column,center);
+        @include padding;
 
-        
-        h4{
-            font-size: 0.8rem;
-            margin: 6px;
-            text-transform: uppercase;
-
-        }
         h5{
-            font-size: 1.4rem;
-            color: rgb(7, 82, 133);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            // font-weight: bold;
         }
-    
+
+        h3{
+            // font-size: 1.6rem;
+            font-weight: bold;
+        }
+        
+
     }
 
     &__wrapper{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
-        padding: 5%;
-        grid-gap: 10px;
-
-        //card
-        .testimony__card{
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        padding: 5%;
-        transform: scale3d(0.9,0.9,0.9);
-        transition: all 0.2s;
-        &:hover{
-            transform: scale3d(1,1,1);
-            
-
+        padding-left: calc(20% - 100px);
+        padding-right: calc(20% - 100px);
+        @include displayGrid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        @include media("≥phone", "≤tablet") {
+            grid-template-columns: repeat(1,1fr);
         }
-        
-        
+        .testimony__card{
+        border-radius: 5px;
+        margin: calc(2% + 10px);
+        padding: calc(2% + 10px);
+        background-color: white;
+        @include displayFlex(column,center);
 
+        //title
         &--title{
-            padding: 0px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            *{
-                margin: 1px;
-                margin-top: 2px;
-            }
-            
+            @include displayFlex(column,center);
+            // @include debug(red);
             h4{
-                font-size: 0.9rem;
+                font-size: calc(40% + 10px);
             }
             h5{
-                font-size: 0.7rem;
+                font-size: calc(20% + 10px);
             }
-        }
 
+
+        }
+        
+        //image
         &--image{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            img{
-                width: 40%;
-                border-radius: 50%;
-            }
+            @include displayFlex(column,center);
+                margin: calc(2% + 10px);
+                img{
+                    width: calc(30% + 5px);
+                    border-radius: 50%;
+                    
+                }
         }
 
+        //content
         &--desc{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+        // @include debug(red);
+        @include displayFlex(column,center);
+            
+        }
+        
+        }
 
-            p{
-                color: rgb(153, 153, 153);
-            }
-        }
-           
-        }
     }
 }
-/*testimony end*/
+/*testimonies end*/
 
-/*blogPost*/
-
+/*blog*/
 .blogPost{
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 2%;
-
+    padding: calc(2% + 10px);
 
     &__text{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5%;
-
+        @include displayFlex(column,center);
         h5{
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            color: rgb(148, 144, 144);
-        }
+            margin: 2%;
 
+        }
         h4{
-            font-size: 1.4rem;
+            font-weight: bold;
+            font-size: 1.7rem;
         }
-
     }
 
     &__wrapper{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(auto-fill 1fr));
-        padding: 0% 5% 0% 5%;
-    
-    
+        // padding: calc(2% + 10px);
+        @include displayGrid;
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        @include media("≥phone", "≤tablet") {
+            grid-template-columns: repeat(1,1fr);
+        }
+
+
         .blogPost__card{
-            // border: 1px solid rgb(219, 219, 219);
-            margin: 10px;
-            display: grid;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            align-content: center;
-            justify-items: center;
-            grid-gap: 5px;
+        margin: 2%;            
             &--image{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid rgb(219, 219, 219);
+                border: 2px solid $third-text-color;
+                @include displayFlex(column,center);
                 img{
                     width: 50%;
+                    max-width: 60%;
                 }
             }
 
             &--content{
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-gap: 5px;
-                h5{
-                    font-size: 1.2rem;
-                }
-                &--postDate{
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    
-                    span{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-items: center;
-                        align-content: center;
+            padding: 2px;
+            // padding-top: 5%;
 
-                        
-                        small{
-                            margin: 2px;
-                            font-size: 0.9rem;
-                        }
+                //title
+                h5{
+                    font-weight: bold;
+                }
+
+                &--postDate{
+                @include displayFlex(row,center);
+                justify-content: space-evenly;
+                
+
+                span{
+
+                    small{
+
+                        font-size: 0.7rem;
+                        margin: 3px;
+                        // text-transform: uppercase;
+
                     }
+
                     
+
+                
+                }
                 }
 
                 a{
-                    color: rgb(0, 174, 255);
+                    color: $primary-text-color;
+                    text-decoration-thickness: 1px;
+                    text-underline-offset: 5px;
                     text-decoration: none;
+                    transition: all 0.9s;
 
+
+                    &:hover{
+                    text-decoration: underline;
+
+                    }
                 }
-            }           
+            }
         }
+
+
     }
 }
-/*blogPostend*/
+/*blog end*/
 
-/*contact from*/
-
+/*contact form */
 .contact{
-    display:grid;
-    grid-template-columns: 1fr;
-    background-color: rgb(172, 208, 241);
-    padding: 5%;
-    
-   
+    background-color: $primary-text-color;
 
     &__text{
-    
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10px;
+        @include displayFlex(column,center);
+        padding: calc(2% + 10px);
+
+        h5{
+            color: $secondary-text-color;
+            margin: 2%;
+        }
 
         h4{
-            color: white;
-            text-transform: uppercase;
-        }
-
-        h3{
-            color: rgb(34, 81, 95);
+            color: $third-text-color;
+            font-size: 1.2rem;
+            text-align: center;
         }
     }
 
     &__wrapper{
-        display: grid;
-        grid-template-columns: repeat(12,1fr);
-        
+        // @include debug(red);
+        @include displayGrid;
+        padding: calc(5% + 10px);
 
-        
         form{
-        display: flex;
-        flex-direction: column;
-        grid-column: 5/-5;
-        background-color: transparent;
-        margin: 5px;
-        @include media("≥phone", "≤tablet") {
-            grid-column: 1/-1;
-        }
-        
-        
-        
+        background-color: white;
+        margin-left: calc(35% - 100px);
+        margin-right: calc(35% - 100px);
+        padding: calc(2% - 10px);
 
         .inputGroup{
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            background-color: white;
-            margin: 8px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            @include media("≥phone", "≤tablet") {
-                margin: 5px;
-            }
+        border: 1px solid transparent;
+        margin: 10px;
+        display: grid;
+        border-bottom-color: $third-text-color;
 
-            //onfocus
-            &:hover{
-                border-radius: 0px;
-                border: 1px solid rgb(0, 162, 255);
-            }
-            
-            input{
-                // width: 100%;
-                background-color: transparent;
-                border: 2px solid transparent;
-                outline: none;
-                font-family: poppins;
-                font-weight: bold;
 
-                
-            }
+        input{
+            border: 2px solid transparent;
+            outline: none;
+            margin: calc(2% + 2px);
 
-            textarea{
-                background-color: transparent;
-                outline: none;
-                border: 1px solid transparent;
-            }
-
-            //button
-            &:nth-last-child(1){
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border: 1px solid transparent;
-                background-color: transparent;
-                
-                input{
-                    cursor: pointer;
-                    background-color: rgb(255, 255, 255);
-                    padding: 10px;
-                    color: rgb(15, 15, 15);
-                    font-weight: bold;
-                    transition: all 0.2s;
-
-                    &:hover{
-                        background-color: rgb(6, 42, 83);
-                        color: rgb(255, 255, 255);
-                    }
-
-                }
-                
-            }
-
-            
         }
 
-
-            
-        }
-    }
-}
-/*contact from end*/
-
-.footer{
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: 1fr;
-    padding: 2%;
-    background-color: rgb(4, 35, 48);
-    color: white!important;
-
-    &__wrapper{
-        padding: 5%;
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        @include media("≥phone", "≤tablet") {
-        flex-flow: wrap;
-            
-        }
-
-        &--media{
-            display: flex;
-            flex-direction: column;
-            align-items: baseline;
-            
-            h5{
-                font-size: 1.4rem;
-            }
-
-            ul{
-                display: flex;
-                flex-direction: row;
-                padding: 5% 0% 5% 0%;
-
-               li{
-                   margin: 5px;
-                a{
-                    transition: all 0.2s;
-                    color: white;
-                    i{
-                        font-size: 2rem;
-                    }
-
-                    &:hover{
-                        color: rgb(255, 0, 85);
-                    }
-                }
-               }
-            }
-        }
-
-        &--company{
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-
-            h4{
-                font-size: 1.2rem;
-            }
-            
-            ul{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                margin: 10% 0px 10% 0px;
-
-                li{
-                    margin: 2px;
-                    font-size: .9rem;
-                    font-weight: lighter;
-
-                    a{
-                        color: rgb(226, 222, 222);
-                    }
-                }
-            }
-        }
-    
-    }
-
-    &__companyName{
-        display: flex;
-        flex-direction: row;
-        // 
-        justify-content: space-between;
-        
-
-        
-
-       p{
-        // 
-        &:nth-child(1){
-
-            color: rgb(241, 237, 237);
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 200;
-
-            strong{
-                font-weight: 200;
-                color: rgb(238, 8, 84);
-            }
+        textarea{
+            outline: none;
+            border: 2px solid transparent;
+            background-color: transparent;
         }
 
         &:nth-last-child(1){
-            //    color: red;
-            
-            &:hover{
-                color: rgb(255, 0, 85);
-                cursor: pointer;
-            }
-            
+            // border: 2px dashed red;
+            @include displayFlex(column,center);
+            border: 2px solid transparent;
 
-           }
-       }
+            button{
+                padding: calc(2% + 5px);
+                padding-bottom:2%;
+                padding-top:2%;
+                border: 1px solid transparent;
+                background-color: $primary-text-color;
+                color: $third-text-color;
+                transition: all 0.5s;
+
+                &:hover{
+                background-color: rgb(23, 72, 136);
+                color: white;
+                }
+            }
+        }
+
+        }
+        }
+    }
+}
+/*contact form end*/
+
+/*footer*/
+.footer{
+    // @include debug(red);
+    background-color: $primary-text-color;
+    padding: calc(2% + 10px);
+
+    
+    &__wrapper{
+    // @include debug(red);
+    @include displayGrid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    @include media("≥phone", "≤tablet") {
+        // @include debug(red);
+        grid-template-columns: repeat(1,1fr);
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    color: $third-text-color;
+
+    &--media{
+        
+
+        ul{
+            @include displayFlex(row,center);
+            
+            li{
+                margin: 5px;
+
+                a{
+                    color: white;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    &--company{
+        // @include debug(red);
+        @include displayFlex(column,center);
+        margin: 5%;
+        
+
+        ul{
+            @include displayFlex(column,center);
+            li{
+                a{
+                    color: $third-text-color;
+                }
+            }
+        }
     }
 }
 
+&__companyName{
+    // @include debug(red);
+    @include displayFlex(column,center);
+    color: white;
 
+}
+
+}
+
+/*footer*/

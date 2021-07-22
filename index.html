@@ -18,48 +18,47 @@
     <nav class="navbar" id="navbar">
 
         <div class="navbar__logo" id="logo">
-            <h4>Kevin Designz Pro</h4>
-            <div class="navbar__burger">
+            <h4>Kevin Designz Pro</h4>  
             
-                <div class="navbar__burger--wrapper" id="burger_menu">
+            <div class="menu">
+
+                <div class="menu__container">
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
-    
             </div>
+            
         </div>
 
         <ul class="navbar__links" id="navbar__links">
             
-            <li class="navbar__links--item active">
+            <li class="navbar__links--item">
                 <a href="#homePage">Home</a>
-                
             </li>
 
-
-            <li class="navbar__links--item active">
+            <li class="navbar__links--item">
                 <a href="#features">Services</a>
             </li>
 
 
-            <li class="navbar__links--item active">
+            <li class="navbar__links--item">
                 <a href="#aboutUs">About Us</a>
             </li>
 
 
 
-            <li class="navbar__links--item active">
+            <li class="navbar__links--item">
                 <a href="#blog">Blog</a>
             </li>
 
 
 
-            <li class="navbar__links--item active">
+            <li class="navbar__links--item">
                 <a href="#contact">Contact Us</a>
             </li>
 
-            <li class="navbar__links--item active">
+            <li class="navbar__links--item btn">
                 <a href="#">Book Demo</a>
             </li>
 
@@ -71,23 +70,24 @@
     <!-- navigation bar end -->
 
     <!-- hero page -->
-
-    <div class="container hero" id="homePage">
+    <div class="hero" id="homePage">
 
         <div class="hero__text">
-            <p>
-               Bem Vindo a <strong>Kevin Designz Pro </strong><br>Ja pensou em ter sua Propria marca? Encomende Já O seu Design e ganhe 50% de desconto
-            </p>
+            
+            <div class="hero__text--content">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta cumque maiores eius odit </p>
+            </div>
 
-            <div class="buttons">
+            <div class="hero__text--buttons">
                 <button class="btn btn__primary"><a class="link" href="#">Book a Call</a></button>
                 <button class="btn btn__secondary" ><a class="link" href="#">Our Projects</a></button>
             </div>
         </div>
 
-        <div class="hero__image">
+        <!-- <div class="hero__image">
             <img src="/resources/images/Products/img3.png" alt="Hero Image" id="product_image">
-        </div>
+        </div> -->
 
     </div>
     <!-- hero page end-->
@@ -100,7 +100,7 @@
 
         <div class="about__text">
 
-            <h4>About Us</h4>
+            <h3>About Us</h3>
             <p>
                 <span>Lorem ipsum  consectetur adipisicing elit. Ex, dolor?</span>
                 <br>
@@ -108,18 +108,15 @@
             </p>
 
             <a class="link" href="#">Saiba mais </a>
-
-
-
-            
         </div>
     </div>
     <!-- about end -->
 
      <!-- about 2-->
      <div class="about about_second">
+
         <div class="about__image">
-            <img src="/resources/images/about2.jpg" alt="">
+            <img src="/resources/images/about.jpg" alt="">
         </div>
 
         <div class="about__text">
@@ -143,12 +140,12 @@
     <!-- features -->
     <div class="features" id="features">
         <div class="features__header">
-            <h4>Serviços</h4>
-            <p>O que nos Fazemos?</p>
+            <h5>Serviços</h5>
+            <h2>O que nos Fazemos?</h2>
         </div>
-        <div class="features__wrapper">
+        <div class="features__wrapper container">
 
-            <div class="features__wrapper--card">
+            <div class="features__wrapper--card card">
                 <h4>01</h4>
                 <h5>Branding</h5>
                 <p>
@@ -157,7 +154,7 @@
                 <a class="link" href="#">Saiba mais</a>
             </div>
 
-            <div class="features__wrapper--card">
+            <div class="features__wrapper--card card">
                 <h4>02</h4>
                 <h5>Product Packaging</h5>
                 <p>
@@ -166,7 +163,7 @@
                 <a class="link" href="#">Saiba mais</a>
             </div>
 
-            <div class="features__wrapper--card">
+            <div class="features__wrapper--card card">
                 <h4>03</h4>
                 <h5>Flyers and Banners for Advertise</h5>
                 <p>
@@ -175,7 +172,7 @@
                 <a class="link" href="#">Saiba mais</a>
             </div>
 
-            <div class="features__wrapper--card">
+            <div class="features__wrapper--card card">
                 <h4>04</h4>
                 <h5>Web Design</h5>
                 <p>
@@ -188,9 +185,9 @@
     <!-- features end-->
 
     <!-- social proof -->
-    <div class="goals" id="goals">
+    <div class="goals container" id="goals">
 
-        <div class="goals__card">
+        <div class="goals__card card">
             <span>
                 <i class='bx bx-time-five' style='color:#bbb9b5'  ></i>
             </span>
@@ -199,7 +196,7 @@
             </p>
         </div>
 
-        <div class="goals__card">
+        <div class="goals__card card">
             <span>
                 <i class='bx bx-user' style='color:#bbb9b5' ></i>
             </span>
@@ -208,7 +205,7 @@
             </p>
         </div>
 
-        <div class="goals__card">
+        <div class="goals__card card">
             <span>
                 <i class='bx bx-map' style='color:#bbb9b5' ></i>
             </span>
@@ -217,7 +214,7 @@
             </p>
         </div>
 
-        <div class="goals__card">
+        <div class="goals__card card">
             <span>
                 <i class='bx bxs-happy-heart-eyes' style='color:#bbb9b5' ></i>
             </span>
@@ -253,10 +250,10 @@
     <div class="work" id="work_process">
 
         <div class="work__header">
-            <h4>Como trabalhamos ?</h4>
-            <p>
+            <h5>Como trabalhamos ?</h5>
+            <h4>
                 O Processo Que Seguimos
-            </p>
+            </h4>
         </div>
 
         <div class="work__process">
@@ -265,33 +262,38 @@
                 <span id="icon">
                     <i class='bx bx-paint' style='color:#1f91d2'  ></i>
                 </span>
+                <div>
+                    <h2>01</h2>
+                    <span>
+                        Lorem ipsum dolor sit amet.
+                    </span>
 
-                <p>
-                    <span>01</span>
-                    Lorem ipsum  consectetur adipisicing elit.
-                </p>
+
+                </div>
             </div>
 
             <div class="work__process--card">
                 <span id="icon">
                     <i class='bx bx-grid' style='color:#1f91d2' ></i>
                 </span>
-
-                <p>
-                    <span>02</span>
-                    Lorem ipsum  consectetur adipisicing elit.
-                </p>
+                <div>
+                    <h2>01</h2>
+                    <span>
+                        Lorem ipsum dolor sit amet.
+                    </span>
+                </div>
             </div>
 
             <div class="work__process--card">
                 <span id="icon">
                     <i class='bx bx-bar-chart-alt' style='color:#1f91d2' ></i>
                 </span>
-
-                <p>
-                    <span>03</span>
-                    Lorem ipsum  consectetur adipisicing elit.
-                </p>
+                <div>
+                    <h2>01</h2>
+                    <span>
+                        Lorem ipsum dolor sit amet.
+                    </span>
+                </div>
             </div>
 
 
@@ -310,8 +312,8 @@
     <div class="testimonies" id="testimony">
 
         <div class="testimonies__text">
-            <h4>What they Say.</h4>
-            <h5>Clients Testimonials</h5>
+            <h5>What they Say.</h5>
+            <h3>Clients Testimonials</h3>
         </div>
 
         <div class="testimonies__wrapper">
@@ -401,37 +403,12 @@
 
             </div>
 
-            <div class="testimony__card">
-                
-                <div class="testimony__card--title">
-                    <h4>Kevin Brian</h4>
-                    <h5>Developer</h5>
-                </div>
-
-                <div class="testimony__card--image">
-                    <img src="/resources/images/Testimonies/img1.jpg" alt="">
-                </div>
-
-                <div class="testimony__card--desc">
-                    <p>
-                        Lorem ipsum  consectetur adipisicing elit. Reprehenderit delectus.
-                    </p>
-
-                    <div class="testimony__card--desc--review">
-                        <i class='bx bxs-star' style='color:#f7c507'  ></i>
-                        <i class='bx bxs-star' style='color:#f7c507'  ></i>
-                        <i class='bx bxs-star' style='color:#f7c507'  ></i>
-                        <i class='bx bxs-star' style='color:#f7c507'  ></i>
-                        <i class='bx bxs-star' style='color:#f7c507' ></i>
-                        
-                    </div>
-                </div>
-
-            </div>
+            
 
             
 
         </div>
+
     </div>
     <!-- testimonies end-->
 
@@ -439,8 +416,8 @@
     <div class="blogPost" id="blog">
 
         <div class="blogPost__text">
-            <h5>Lorem ipsum dolor sit.</h5>
-            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+            <h5>Lastest Updates</h5>
+            <h4>Our Blog</h4>
         </div>
 
         <div class="blogPost__wrapper">
@@ -543,8 +520,8 @@
     <!-- contact form -->
     <div class="contact" id="contact">
         <div class="contact__text">
-            <h4>Contact Us</h4>
-            <h3>Let's work together on a project</h3>
+            <h5>Contact Us</h5>
+            <h4>Let's work together on a project</h4>
         </div>
         <div class="contact__wrapper">
             <form>
@@ -564,8 +541,9 @@
                 </div>
 
                 <div class="inputGroup">
-                    <input type="submit" value="Send Message">
+                <button type="submit">Send Message</button>
                 </div>
+                
 
             </form>
 
@@ -640,13 +618,8 @@
         </div>
 
         <div class="footer__companyName">
-
             <p>
-                <small>CopyRights</small>&copy; <strong>Kevin Designz Pro 2021</strong>
-            </p>
-
-            <p>
-                <strong>Design with &heartsuit;</strong> by Kevin Brian
+                Developed by Kevin Brian
             </p>
 
         </div>
@@ -661,6 +634,6 @@
 
 
     <script type="module" src="resources/script/main.js"></script>
-    <script type="module" src="node_modules/boxicons/src/index.js"></script>
+    <!-- <script type="module" src="node_modules/boxicons/src/index.js"></script> -->
 </body>
 </html>

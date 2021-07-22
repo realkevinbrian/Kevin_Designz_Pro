@@ -1,26 +1,23 @@
-import {navbar_burger} from "./navbar.js"
-navbar_burger ();
-//links
-let links = document.getElementsByClassName("link");
+//navbar
+navbarHandler();
+function navbarHandler() {
+    let links_wrapper = document.querySelector("#navbar__links");
 
-let linksArray = Array.from(links);
-let iconEl = document.createElement("i");
+    links_wrapper.addEventListener("click", elem => {
+        //if you click on the element it will add the active class to the specified clicked element
+        //1-we have to match and set condition to just click on a tag links
 
+        let link = elem.target;
 
-// console.log(linksArray)
+        if (link.classList !== "active") {
 
-for(let link of linksArray){
-
-    link.addEventListener("mouseover", el=>{
-
-        
-        iconEl.classList= "bx bx-right-arrow-alt";
-        iconEl.style.color = "#000041";
-        iconEl.style.fontSize = "1.4rem"
-
-        //append to the link
-
-        el.target.appendChild(iconEl);
-
-    })
+            link.classList.add("active");
+        }
+        else if (link.classList === "active") {
+            link.className = "";
+        }
+    });
 }
+
+
+
