@@ -3,34 +3,34 @@
 @import "../../resources/style/modules/functions";
 @import "../../resources/style/modules/default";
 @import "../../node_modules/include-media/dist/include-media";
+
 /*Navigation bar styles*/
 .navbar{
     // @include debug(red);
-    // @include displayFlex(row,center);
+    @include displayFlex(row,space-between);
     @include padding;
     background-color: $primary-text-color;
     position: fixed;
     width: 100%;
     top: 0;
-    // @include debug(red);
 
     //logo 
     &__logo{
-    
-    // @include debug(red);
         color: white;
         @include displayFlex(row,center);
         .menu{
             display: none;
         }
-        
     }
 
     @include media("≥phone", "≤tablet") {
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
         padding: 0px;
-
         
         &__logo{
+            flex:1;
             padding: 4%;
             h4{
                 font-size: 1.1rem;
@@ -45,14 +45,17 @@
                     // border: 2px solid white;
                     margin: 2px;
                     padding: 5px;
-                    @include displayFlex(column,space-between);                    
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;                    
 
                     div{
-                        width: 2.3em;
-                        height: 4px;
+                        width: 35px;
+                        height: 3px;
                         background-color: white;
                         margin: 3px;
                         border-radius: 10px;
+                        transition: all 0.2s;
                         &:nth-last-child(2){
                             width: 50%;
                         }
@@ -62,6 +65,8 @@
 
             }
         }
+
+
         
 
     }
@@ -76,10 +81,14 @@
         justify-content: space-evenly;
         @include media("≥phone", "≤tablet") {
             display: none;
+            flex-direction: column;
+            padding: 6%;
+            transition: all 0.5s;
     }
 
         //li > a
         li{
+            margin: 5px;
             a{
                 color: $third-text-color;
                 &.active{

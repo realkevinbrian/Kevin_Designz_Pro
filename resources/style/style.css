@@ -58,6 +58,14 @@ body {
   height: 100%;
 }
 
+html {
+  user-zoom: none;
+}
+
+body {
+  user-zoom: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -91,6 +99,16 @@ button a {
 
 /*Navigation bar styles*/
 .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
   padding: 0.9rem;
   background-color: #001B2E;
   position: fixed;
@@ -118,9 +136,22 @@ button a {
 
 @media (min-width: 320px) and (max-width: 768px) {
   .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: space-between;
+        -ms-flex-align: space-between;
+            align-items: space-between;
     padding: 0px;
   }
   .navbar__logo {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     padding: 4%;
   }
   .navbar__logo h4 {
@@ -151,16 +182,18 @@ button a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: space-between;
-        -ms-flex-align: space-between;
-            align-items: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
   .navbar__logo .menu__container div {
-    width: 2.3em;
-    height: 4px;
+    width: 35px;
+    height: 3px;
     background-color: white;
     margin: 3px;
     border-radius: 10px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
   }
   .navbar__logo .menu__container div:nth-last-child(2) {
     width: 50%;
@@ -189,7 +222,18 @@ button a {
 @media (min-width: 320px) and (max-width: 768px) {
   .navbar__links {
     display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 6%;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
+}
+
+.navbar__links li {
+  margin: 5px;
 }
 
 .navbar__links li a {
