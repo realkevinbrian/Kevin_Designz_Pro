@@ -122,55 +122,114 @@
     background-repeat: no-repeat;
     background-clip: border-box;
     background-attachment: fixed;
-    // @include debug(black);
     @include displayFlex(row,center);
     height: 100%;
     padding: calc(2% + 10px);
-    padding-left: calc(15% + 10px);
-    padding-right: calc(15% + 10px);
+    padding-left: calc(15% + 15px);
+    padding-right: calc(15% + 15px);
     
 
     @include media("≥phone", "≤tablet") {
         height: initial;
         padding: 0;
-        background-color: white;
         background-image: none;
-        margin-top: calc(20% + 10px);
+        margin-top: calc(15% + 15px);
+        background-image: url("../images/about.jpg");
 
         &__text{
+            
             h1{
-                font-size: 1.5rem;
+                font-size: 2.4rem!important;
                 font-weight: bold;
+                color: white;
+                // @include debug(red);
+                text-align: start;
             }
+            p{
+                color: white;
+            }
+            
         }
+
         
+       
     }
 
     &__text{
-        background-color: rgba(207, 207, 207, 0.747);
-        padding: 10%;
+        background-color: rgba(0, 0, 0, 0.836);
+        padding:5%;
+        color: white;
+    @include media("≥phone", "≤tablet") {
+        background-color: rgba(0, 0, 0, 0.685);
+
+
+    }
 
         &--content{
             // @include debug(red);
+
+            h1{
+                font-size:calc(100% + 25px);
+                font-weight: bolder;
+            }
+            p{
+                font-size:1.2rem;
+            }
         }
 
         &--buttons{
             // @include debug(red);
-            @include displayFlex(row,center);
-            // justify-content: spca;
-            
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
 
             button{
-                @include button;
-                padding: 0.8rem;
-                margin: 5px;
-                border: 2px solid $primary-text-color!important;
-                background-color: $primary-text-color;
-
-                &:hover{
-                    border: 2px solid transparent!important;
-                    background-color: $secondary-text-color;
+                border: 1px solid transparent;
+                padding: calc(100% - 98%);
+                margin: calc(100% - 99%);
+                width: calc(100% - 70%);
+                
+                a{
+                color: $primary-text-color;
+                font-weight: bold;
                 }
+                transition: all 0.5s;
+                @include media("≥phone", "≤tablet") {
+                    width: 50%;
+                    padding: calc(100% - 96%);
+                    a{
+                        font-size:calc(100% + 5%);
+                    }
+                    
+                }
+                &:nth-child(1){
+                    background-color: white;
+                    a{
+                        color: $primary-text-color;
+                    }
+                    &:hover{
+                        background-color: $primary-text-color;
+                        a{
+                            color:white;
+                        }
+                    }
+                }
+
+                &:nth-last-child(1){
+                    background-color: $primary-text-color;
+                    a{
+                        color:white;
+                    }
+
+                    &:hover{
+                        background-color: white;
+                        a{
+                            color:$primary-text-color;
+                        }
+                    }
+
+                }
+
             }
         }
         
